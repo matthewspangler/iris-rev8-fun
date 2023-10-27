@@ -214,168 +214,154 @@ LED index mapping:
 
 const rgblight_segment_t PROGMEM QWERTY_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
     // left side
-    {0, 6, 85, 0, 255},
-    {6, 6, 85, 70, 255},
-    {12, 6, 85, 150, 255},
-    {18, 6, 85, 240, 255},
-    {24, 1, 85, 255, 255},
-    {25, 1, 20, 255, 255}, // _NAV
-    {26, 1, 0, 255, 255}, // _MOUSE
-    {27, 1, 85, 255, 255},
-    {28, 3, 85, 255, 255}, // underglow
-    {31, 3, 85, 0, 255}, // underglow
+    {0, 6, HSV_PURPLE},
+    {6, 6, HSV_PURPLE},
+    {12, 6, HSV_PURPLE},
+    {18, 6, HSV_PURPLE},
+    {24, 1, HSV_PURPLE},
+    {25, 1, HSV_PURPLE},
+    {26, 1, HSV_PURPLE},
+    {27, 1, HSV_PURPLE},
+    {28, 3, HSV_PURPLE}, // underglow
+    {31, 3, HSV_PURPLE}, // underglow
     // right side
-    {34, 6, 85, 0, 255},
-    {40, 6, 85, 70, 255},
-    {46, 6, 85, 150, 255},
-    {52, 6, 85, 240, 255},
-    {58, 1, 201, 255, 255}, // _MEDIA_FN
-    {59, 1, 169, 255, 255}, // _SYM
-    {60, 1, 140, 255, 255}, // _NUM
-    {61, 1, 85, 255, 255},
-    {62, 3, 85, 255, 255}, // underglow
-    {65, 3, 85, 0, 255} // underglow
+    {34, 6, HSV_PURPLE},
+    {40, 6, HSV_PURPLE},
+    {46, 6, HSV_PURPLE},
+    {52, 6, HSV_PURPLE},
+    {58, 1, HSV_PURPLE},
+    {59, 1, HSV_PURPLE},
+    {60, 1, HSV_PURPLE},
+    {61, 1, HSV_PURPLE},
+    {62, 3, HSV_PURPLE}, // underglow
+    {65, 3, HSV_PURPLE} // underglow
 );
 
 const rgblight_segment_t PROGMEM FN_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // Dark Blue
     // left side
-    {0, 6, 201, 255, 255},
-    {6, 6, 191, 255, 255},
-    {12, 6, 181, 255, 255},
-    {18, 6, 171, 255, 255},
-    {24, 4, 169, 255, 255},
-    {28, 3, 169, 255, 255}, // underglow
-    {31, 3, 201, 255, 255}, // underglow
+    {0, 6, HSV_RED},
+    {6, 6, HSV_RED},
+    {12, 6, HSV_RED},
+    {18, 6, HSV_RED},
+    {24, 4, HSV_RED},
+    {28, 3, HSV_RED}, // underglow
+    {31, 3, HSV_RED}, // underglow
     // right side
-    {34, 6, 201, 255, 255},
-    {40, 6, 191, 255, 255},
-    {46, 6, 181, 255, 255},
-    {52, 6, 171, 255, 255},
-    {58, 1, 169, 255, 255},
-    {59, 1, 85, 255, 255}, // DEFAULT
-    {60, 2, 169, 255, 255},
-    {62, 3, 169, 255, 255}, // underglow
-    {65, 3, 201, 255, 255} // underglow
+    {34, 6, HSV_RED},
+    {40, 6, HSV_RED},
+    {46, 6, HSV_RED},
+    {52, 6, HSV_RED},
+    {58, 1, HSV_RED},
+    {59, 1, HSV_RED},
+    {60, 2, HSV_RED},
+    {62, 3, HSV_RED}, // underglow
+    {65, 3, HSV_RED} // underglow
 );
 
 const rgblight_segment_t PROGMEM SYM_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // Light Blue
     // left side
-    {0, 6, 180, 255, 255},
-    {6, 6, 170, 255, 255},
-    {12, 6, 160, 255, 255},
-    {18, 6, 150, 255, 255},
-    {24, 4, 140, 255, 255},
-    {28, 3, 140, 255, 255}, // underglow
-    {31, 3, 180, 255, 255}, // underglow
+    {0, 6, HSV_AZURE},
+    {6, 6, HSV_AZURE},
+    {12, 6, HSV_AZURE},
+    {18, 6, HSV_AZURE},
+    {24, 4, HSV_AZURE},
+    {28, 3, HSV_AZURE}, // underglow
+    {31, 3, HSV_AZURE}, // underglow
     // right side
-    {34, 6, 180, 255, 255},
-    {40, 6, 170, 255, 255},
-    {46, 6, 160, 255, 255},
-    {52, 6, 150, 255, 255},
-    {58, 2, 140, 255, 255},
-    {60, 1, 85, 255, 255}, // DEFAULT
-    {61, 1, 140, 255, 255},
-    {62, 3, 140, 255, 255}, // underglow
-    {65, 3, 180, 255, 255} // underglow
+    {34, 6, HSV_AZURE},
+    {40, 6, HSV_AZURE},
+    {46, 6, HSV_AZURE},
+    {52, 6, HSV_AZURE},
+    {58, 2, HSV_AZURE},
+    {60, 1, HSV_AZURE},
+    {61, 1, HSV_AZURE},
+    {62, 3, HSV_AZURE}, // underglow
+    {65, 3, HSV_AZURE} // underglow
 );
 
 const rgblight_segment_t PROGMEM NAV_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // Yellow
     // left side
-    {0, 6, 4, 255, 255},
-    {6, 6, 10, 255, 255},
-    {12, 6, 25, 255, 255},
-    {18, 6, 40, 255, 255},
-    {24, 1, 40, 255, 255},
-    {25, 1, 85, 255, 255}, // DEFAULT
-    {26, 2, 40, 255, 255},
-    {28, 3, 40, 255, 255}, // underglow
-    {31, 3, 4, 255, 255}, // underglow
+    {0, 6, HSV_GREEN},
+    {6, 6, HSV_GREEN},
+    {12, 6, HSV_GREEN},
+    {18, 6, HSV_GREEN},
+    {24, 1, HSV_GREEN},
+    {25, 1, HSV_GREEN},
+    {26, 2, HSV_GREEN},
+    {28, 3, HSV_GREEN}, // underglow
+    {31, 3, HSV_GREEN}, // underglow
     // right side
-    {34, 6, 4, 255, 255},
-    {40, 6, 10, 255, 255},
-    {46, 1, 0, 255, 255}, // _MEDIA_MISC
-    {47, 5, 25, 255, 255},
-    {52, 6, 40, 255, 255},
-    {58, 4, 40, 255, 255},
-    {62, 3, 40, 255, 255}, // underglow
-    {65, 3, 4, 255, 255} // underglow
+    {34, 6, HSV_GREEN},
+    {40, 6, HSV_GREEN},
+    {46, 1, HSV_GREEN},
+    {47, 5, HSV_GREEN},
+    {52, 6, HSV_GREEN},
+    {58, 4, HSV_GREEN},
+    {62, 3, HSV_GREEN}, // underglow
+    {65, 3, HSV_GREEN} // underglow
 );
 
 const rgblight_segment_t PROGMEM MOUSE_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // Red
     // left side
-    {0, 6, 0, 205, 255},
-    {6, 6, 0, 225, 255},
-    {12, 6, 0, 240, 255},
-    {18, 6, 0, 250, 255},
-    {24, 2, 0, 255, 255},
-    {26, 1, 85, 255, 255}, // DEFAULT
-    {27, 1, 0, 255, 255},
-    {28, 3, 0, 205, 255}, // underglow
-    {31, 3, 0, 255, 255}, // underglow
+    {0, 6, HSV_MAGENTA},
+    {6, 6, HSV_MAGENTA},
+    {12, 6, HSV_MAGENTA},
+    {18, 6, HSV_MAGENTA},
+    {24, 2, HSV_MAGENTA},
+    {26, 1, HSV_MAGENTA},
+    {27, 1, HSV_MAGENTA},
+    {28, 3, HSV_MAGENTA}, // underglow
+    {31, 3, HSV_MAGENTA}, // underglow
     // right side
-    {34, 6, 0, 205, 255},
-    {40, 6, 0, 225, 255},
-    {46, 6, 0, 240, 255},
-    {52, 6, 0, 250, 255},
-    {58, 4, 0, 255, 255},
-    {62, 3, 0, 205, 255}, // underglow
-    {65, 3, 0, 255, 255} // underglow
+    {34, 6, HSV_MAGENTA},
+    {40, 6, HSV_MAGENTA},
+    {46, 6, HSV_MAGENTA},
+    {52, 6, HSV_MAGENTA},
+    {58, 4, HSV_MAGENTA},
+    {62, 3, HSV_MAGENTA}, // underglow
+    {65, 3, HSV_MAGENTA} // underglow
 );
 
 const rgblight_segment_t PROGMEM MEDIA_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // Magenta
-    // both sides
-    {0, 1, 0, 255, 255}, // RESET
-    {1, 4, 220, 255, 255},
-    {5, 1, 85, 0, 255}, // set QWERTY as default
-    {6, 22, 220, 255, 255},
-    {28, 6, 220, 255, 255}, // underglow
-    {34, 1, 0, 255, 255}, // RESET
-    {35, 4, 220, 255, 255},
-    {39, 1, 127, 255, 255}, // set COLEMAK as default
-    {40, 7, 220, 255, 255},
-    {47, 1, 120, 255, 255}, // PLAY
-    {48, 1, 0, 255, 255}, // NEXT
-    {49, 1, 160, 255, 255}, // VOLUME_UP
-    {50, 1, 43, 255, 255}, // BRIGHTNESS_UP
-    {51, 2, 220, 255, 255},
-    {53, 1, 43, 200, 200}, // BRIGHTNESS_DOWN
-    {54, 1, 160, 220, 200}, // VOLUME_DOWN
-    {55, 1, 0, 220, 200}, // PREV
-    {56, 1, 120, 220, 200}, // MUTE
-    {57, 1, 220, 255, 255},
-    {58, 1, 85, 255, 255}, // DEFAULT
-    {59, 3, 220, 255, 255},
-    {62, 6, 220, 255, 255} // underglow
+    // left side
+    {0, 6, HSV_YELLOW},
+    {6, 6, HSV_YELLOW},
+    {12, 6, HSV_YELLOW},
+    {18, 6, HSV_YELLOW},
+    {24, 2, HSV_YELLOW},
+    {26, 1, HSV_YELLOW},
+    {27, 1, HSV_YELLOW},
+    {28, 3, HSV_YELLOW}, // underglow
+    {31, 3, HSV_YELLOW}, // underglow
+    // right side
+    {34, 6, HSV_YELLOW},
+    {40, 6, HSV_YELLOW},
+    {46, 6, HSV_YELLOW},
+    {52, 6, HSV_YELLOW},
+    {58, 4, HSV_YELLOW},
+    {62, 3, HSV_YELLOW}, // underglow
+    {65, 3, HSV_YELLOW} // underglow
 );
 
 const rgblight_segment_t PROGMEM GAMING_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
     // left side
-    {0, 6, 127, 255, 255},
-    {6, 6, 115, 255, 255},
-    {12, 6, 97, 255, 255},
-    {18, 6, 90, 255, 255},
-    {24, 1, 85, 255, 255},
-    {25, 1, 20, 255, 255}, // _NAV
-    {26, 1, 0, 255, 255}, // _MOUSE
-    {27, 1, 85, 255, 255},
-    {28, 3, 85, 255, 255}, // underglow
-    {31, 3, 127, 255, 255}, // underglow
+    {0, 6, HSV_BLUE},
+    {6, 6, HSV_BLUE},
+    {12, 6, HSV_BLUE},
+    {18, 6, HSV_BLUE},
+    {24, 2, HSV_BLUE},
+    {26, 1, HSV_BLUE},
+    {27, 1, HSV_BLUE},
+    {28, 3, HSV_BLUE}, // underglow
+    {31, 3, HSV_BLUE}, // underglow
     // right side
-    {34, 6, 127, 255, 255},
-    {40, 6, 115, 255, 255},
-    {46, 6, 97, 255, 255},
-    {52, 6, 90, 255, 255},
-    {58, 1, 201, 255, 255}, // _MEDIA_FN
-    {59, 1, 169, 255, 255}, // _SYM
-    {60, 1, 140, 255, 255}, // _NUM
-    {61, 1, 85, 255, 255},
-    {62, 3, 85, 255, 255}, // underglow
-    {65, 3, 127, 255, 255} // underglow
+    {34, 6, HSV_BLUE},
+    {40, 6, HSV_BLUE},
+    {46, 6, HSV_BLUE},
+    {52, 6, HSV_BLUE},
+    {58, 4, HSV_BLUE},
+    {62, 3, HSV_BLUE}, // underglow
+    {65, 3, HSV_BLUE} // underglow
 );
 
 
