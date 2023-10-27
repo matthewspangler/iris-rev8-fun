@@ -11,10 +11,11 @@ enum my_layers {
     _MOUSE, // 4
     _MEDIA, // 5
     _GAMING, // 6
+    _MACRO, // 7
 };
 
 #define LAYER_CYCLE_START 0
-#define LAYER_CYCLE_END   6
+#define LAYER_CYCLE_END  7
 
 // SYM
 #define LGU_GRV LGUI_T(KC_GRV)
@@ -33,6 +34,7 @@ enum my_layers {
 #define MO_NAV MO(_NAV)
 #define MO_SYM MO(_SYM)
 #define MO_MS MO(_MOUSE)
+#define MO_MAC MO(_MACRO)
 #define TO_QW TO(_QWERTY)
 #define TO_FN TO(_FN)
 #define TO_NAV TO(_NAV)
@@ -40,6 +42,7 @@ enum my_layers {
 #define TO_MS TO(_MOUSE)
 #define TO_MED TO(_MEDIA)
 #define TO_GAM TO(_GAMING)
+#define TO_MAC TO(_MACRO)
 #define FN_LBRC LT(_FN, KC_LBRC)
 #define MS_RBRC LT(_MOUSE, KC_RBRC)
 
@@ -80,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
        TD(LACL),    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, FN_LBRC,          MS_RBRC,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
     //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                      TD(AGUI),  TO_GAM,  KC_SPC,                    KC_SPC,   TO_FN,TD(RAAL)
+                                      TD(AGUI),  TO_MAC,  KC_SPC,                    KC_SPC,   TO_FN,TD(RAAL)
     //                               └────────┴────────┴────────┘                 └────────┴────────┴────────┘
     ),
 
@@ -165,45 +168,245 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
         KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,          KC_RBRC,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ENT,
     //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                       KC_LGUI,  TO_MED,  KC_SPC,                    KC_SPC,   TO_QW, KC_RALT
+                                       KC_LGUI,  TO_MED,  KC_SPC,                    KC_SPC,  TO_MAC, KC_RALT
     //                               └────────┴────────┴────────┘                 └────────┴────────┴────────┘
     ),
+
+    [_MACRO] = LAYOUT(
+    //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+    //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+    //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+    //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+        _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
+    //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                                       _______,  TO_GAM, _______,                   _______,   TO_QW, _______
+    //                               └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+    ),
+
 };
 
+// --------------------------
+// RGB Lighting Configuration
+// --------------------------
+
+/*
+
+LED index mapping:
+
+          (31)              (32)              (33)                                    (67)              (66)              (65)
+┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
+│0       │1       │2       │3       │4       │5       │                          │39      │38      │37      │36      │35      │34      │
+├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+│11      │10      │9       │8       │7       │6       │                          │40      │41      │42      │43      │44      │45      │
+├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
+│12      │13      │14      │15      │16      │17      │                          │51      │50      │49      │48      │47      │46      │
+├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+│23      │22      │21      │20      │19      │18      │27      │        │61      │52      │53      │54      │55      │56      │57      │
+└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
+                               │24      │25      │26      │                 │60      │59      │58      │
+                               └────────┴────────┴────────┘                 └────────┴────────┴────────┘
+          (30)              (29)              (28)                                    (62)              (63)              (64)
+
+*/
+
+const rgblight_segment_t PROGMEM QWERTY_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // left side
+    {0, 6, 85, 0, 255},
+    {6, 6, 85, 70, 255},
+    {12, 6, 85, 150, 255},
+    {18, 6, 85, 240, 255},
+    {24, 1, 85, 255, 255},
+    {25, 1, 20, 255, 255}, // _NAV
+    {26, 1, 0, 255, 255}, // _MOUSE
+    {27, 1, 85, 255, 255},
+    {28, 3, 85, 255, 255}, // underglow
+    {31, 3, 85, 0, 255}, // underglow
+    // right side
+    {34, 6, 85, 0, 255},
+    {40, 6, 85, 70, 255},
+    {46, 6, 85, 150, 255},
+    {52, 6, 85, 240, 255},
+    {58, 1, 201, 255, 255}, // _MEDIA_FN
+    {59, 1, 169, 255, 255}, // _SYM
+    {60, 1, 140, 255, 255}, // _NUM
+    {61, 1, 85, 255, 255},
+    {62, 3, 85, 255, 255}, // underglow
+    {65, 3, 85, 0, 255} // underglow
+);
+
+const rgblight_segment_t PROGMEM FN_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // Dark Blue
+    // left side
+    {0, 6, 201, 255, 255},
+    {6, 6, 191, 255, 255},
+    {12, 6, 181, 255, 255},
+    {18, 6, 171, 255, 255},
+    {24, 4, 169, 255, 255},
+    {28, 3, 169, 255, 255}, // underglow
+    {31, 3, 201, 255, 255}, // underglow
+    // right side
+    {34, 6, 201, 255, 255},
+    {40, 6, 191, 255, 255},
+    {46, 6, 181, 255, 255},
+    {52, 6, 171, 255, 255},
+    {58, 1, 169, 255, 255},
+    {59, 1, 85, 255, 255}, // DEFAULT
+    {60, 2, 169, 255, 255},
+    {62, 3, 169, 255, 255}, // underglow
+    {65, 3, 201, 255, 255} // underglow
+);
+
+const rgblight_segment_t PROGMEM SYM_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // Light Blue
+    // left side
+    {0, 6, 180, 255, 255},
+    {6, 6, 170, 255, 255},
+    {12, 6, 160, 255, 255},
+    {18, 6, 150, 255, 255},
+    {24, 4, 140, 255, 255},
+    {28, 3, 140, 255, 255}, // underglow
+    {31, 3, 180, 255, 255}, // underglow
+    // right side
+    {34, 6, 180, 255, 255},
+    {40, 6, 170, 255, 255},
+    {46, 6, 160, 255, 255},
+    {52, 6, 150, 255, 255},
+    {58, 2, 140, 255, 255},
+    {60, 1, 85, 255, 255}, // DEFAULT
+    {61, 1, 140, 255, 255},
+    {62, 3, 140, 255, 255}, // underglow
+    {65, 3, 180, 255, 255} // underglow
+);
+
+const rgblight_segment_t PROGMEM NAV_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // Yellow
+    // left side
+    {0, 6, 4, 255, 255},
+    {6, 6, 10, 255, 255},
+    {12, 6, 25, 255, 255},
+    {18, 6, 40, 255, 255},
+    {24, 1, 40, 255, 255},
+    {25, 1, 85, 255, 255}, // DEFAULT
+    {26, 2, 40, 255, 255},
+    {28, 3, 40, 255, 255}, // underglow
+    {31, 3, 4, 255, 255}, // underglow
+    // right side
+    {34, 6, 4, 255, 255},
+    {40, 6, 10, 255, 255},
+    {46, 1, 0, 255, 255}, // _MEDIA_MISC
+    {47, 5, 25, 255, 255},
+    {52, 6, 40, 255, 255},
+    {58, 4, 40, 255, 255},
+    {62, 3, 40, 255, 255}, // underglow
+    {65, 3, 4, 255, 255} // underglow
+);
+
+const rgblight_segment_t PROGMEM MOUSE_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // Red
+    // left side
+    {0, 6, 0, 205, 255},
+    {6, 6, 0, 225, 255},
+    {12, 6, 0, 240, 255},
+    {18, 6, 0, 250, 255},
+    {24, 2, 0, 255, 255},
+    {26, 1, 85, 255, 255}, // DEFAULT
+    {27, 1, 0, 255, 255},
+    {28, 3, 0, 205, 255}, // underglow
+    {31, 3, 0, 255, 255}, // underglow
+    // right side
+    {34, 6, 0, 205, 255},
+    {40, 6, 0, 225, 255},
+    {46, 6, 0, 240, 255},
+    {52, 6, 0, 250, 255},
+    {58, 4, 0, 255, 255},
+    {62, 3, 0, 205, 255}, // underglow
+    {65, 3, 0, 255, 255} // underglow
+);
+
+const rgblight_segment_t PROGMEM MEDIA_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // Magenta
+    // both sides
+    {0, 1, 0, 255, 255}, // RESET
+    {1, 4, 220, 255, 255},
+    {5, 1, 85, 0, 255}, // set QWERTY as default
+    {6, 22, 220, 255, 255},
+    {28, 6, 220, 255, 255}, // underglow
+    {34, 1, 0, 255, 255}, // RESET
+    {35, 4, 220, 255, 255},
+    {39, 1, 127, 255, 255}, // set COLEMAK as default
+    {40, 7, 220, 255, 255},
+    {47, 1, 120, 255, 255}, // PLAY
+    {48, 1, 0, 255, 255}, // NEXT
+    {49, 1, 160, 255, 255}, // VOLUME_UP
+    {50, 1, 43, 255, 255}, // BRIGHTNESS_UP
+    {51, 2, 220, 255, 255},
+    {53, 1, 43, 200, 200}, // BRIGHTNESS_DOWN
+    {54, 1, 160, 220, 200}, // VOLUME_DOWN
+    {55, 1, 0, 220, 200}, // PREV
+    {56, 1, 120, 220, 200}, // MUTE
+    {57, 1, 220, 255, 255},
+    {58, 1, 85, 255, 255}, // DEFAULT
+    {59, 3, 220, 255, 255},
+    {62, 6, 220, 255, 255} // underglow
+);
+
+const rgblight_segment_t PROGMEM GAMING_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // left side
+    {0, 6, 127, 255, 255},
+    {6, 6, 115, 255, 255},
+    {12, 6, 97, 255, 255},
+    {18, 6, 90, 255, 255},
+    {24, 1, 85, 255, 255},
+    {25, 1, 20, 255, 255}, // _NAV
+    {26, 1, 0, 255, 255}, // _MOUSE
+    {27, 1, 85, 255, 255},
+    {28, 3, 85, 255, 255}, // underglow
+    {31, 3, 127, 255, 255}, // underglow
+    // right side
+    {34, 6, 127, 255, 255},
+    {40, 6, 115, 255, 255},
+    {46, 6, 97, 255, 255},
+    {52, 6, 90, 255, 255},
+    {58, 1, 201, 255, 255}, // _MEDIA_FN
+    {59, 1, 169, 255, 255}, // _SYM
+    {60, 1, 140, 255, 255}, // _NUM
+    {61, 1, 85, 255, 255},
+    {62, 3, 85, 255, 255}, // underglow
+    {65, 3, 127, 255, 255} // underglow
+);
+
+
+const rgblight_segment_t* const PROGMEM MY_LIGHT_LAYERS[] = RGBLIGHT_LAYERS_LIST(
+    QWERTY_LIGHT_LAYER,
+    FN_LIGHT_LAYER,
+    SYM_LIGHT_LAYER,
+    NAV_LIGHT_LAYER,
+    MOUSE_LIGHT_LAYER,
+    MEDIA_LIGHT_LAYER,
+    GAMING_LIGHT_LAYER
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = MY_LIGHT_LAYERS;
+}
+
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(_QWERTY, layer_state_cmp(state, _QWERTY));
+
+    return state;
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-        case _QWERTY:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-        case _FN:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-        case _SYM:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-        case _NAV:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-        case _MOUSE:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-        case _MEDIA:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-        case _GAMING:
-            rgb_matrix_set_color_all(0, 0, 0);
-            rgb_matrix_set_color_all(0, 0, 255);
-            break;
-        default:
-            rgb_matrix_set_color_all(0,0,0);
-            rgb_matrix_set_color_all(255,0,0);
-            break;
-    }
+    rgblight_set_layer_state(_FN, layer_state_cmp(state, _FN));
+    rgblight_set_layer_state(_SYM, layer_state_cmp(state, _SYM));
+    rgblight_set_layer_state(_NAV, layer_state_cmp(state, _NAV));
+    rgblight_set_layer_state(_MOUSE, layer_state_cmp(state, _MOUSE));
+    rgblight_set_layer_state(_MEDIA, layer_state_cmp(state, _MEDIA));
+    rgblight_set_layer_state(_GAMING, layer_state_cmp(state, _GAMING));
+
     return state;
 }

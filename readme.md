@@ -1,15 +1,23 @@
-# Iris rev. 8 keymap
+# Keebio Iris Keymap/Layout
 
-TODO
+## Features
+- Designed for rev 8 model
+- Per-layer RGB lighting settings
+- Tap dance keys
+- Automation/macros inspired based on BadUSB scripts
 
 ## Layers
 
-TODO
+### Qwerty
+### Fn
+### SYMBOLS
+### Navigation
+### Mouse
+### Media
+### Gaming
+
+## Ducky Scripts
 
 ## Usage
 
-Use [qmk-firmware](https://qmk.fm) to compile the keymap, example:
-
-```bash
-qmk compile -kb keebio/iris/rev8 -km matthewspangler && cp ~/qmk_firmware/.build/keebio_iris_rev8_matthewspangler.hex ~/Desktop/keebio_iris_rev8_matthewspangler.hex
-```
+Build is done with a Podman container. Ensure you have Podman installed, then execute ./build.sh
