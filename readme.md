@@ -1,6 +1,6 @@
 # Keebio Iris Rev 8 Keymap
 
-![My Iris Rev 8](keyboard-pic.png "My Iris Rev 8")
+![My Iris Rev 8](keyboard-pic.jpg "My Iris Rev 8")
 
 ## Features
 - Designed for rev 8 model
