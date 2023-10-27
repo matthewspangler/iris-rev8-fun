@@ -1,6 +1,3 @@
-cd /build-volume
-echo "Cloning qmk firmware repo"
-git clone https://github.com/qmk/qmk_firmware.git
 cd /build-volume/qmk_firmware
 echo "Activating venv"
 . /opt/venv/bin/activate
@@ -15,5 +12,4 @@ qmk new-keymap -kb keebio/iris/rev8 -km matthewspangler
 cp /build-volume/custom-keymap/* /build-volume/qmk_firmware/keyboards/keebio/iris/keymaps/matthewspangler
 echo "Compile firmware"
 qmk compile -kb keebio/iris/rev8 -km matthewspangler
-ls
-pwd
+mv /build-volume/qmk_firmware/keebio_iris_rev8_matthewspangler.uf2 /build-volume/build-output

@@ -38,22 +38,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 ADD ./build-volume /build-volume
 VOLUME ./build-volume
-WORKDIR /build-volume
+#WORKDIR /build-volume
 
-COPY ./entry.sh /build-volume/
-
-# Create the output directory
-RUN mkdir /output
+COPY entry.sh .
 
 RUN python3 -m venv /opt/venv
 RUN . /opt/venv/bin/activate && \
     pip install qmk
 
-# Keyboard and layout can be defined at build time...
-ARG buildKeyboard=ergodox_ez
-ARG buildLayout=default
-# ...or at runtime
-ENV keyboard=$buildKeyboard
-ENV layout=$buildLayout
-
-CMD /build-volume/entry.sh
+CMD /entry.sh

@@ -20,4 +20,6 @@
 
 ## Usage
 
-Build is done with a Podman container. Ensure you have Podman installed, then execute ./build.sh
+1) Ensure you have Podman installed
+2) Execute ./build.sh
+3) UF2 firmware build will be copied to ./build-volume/build-output/
