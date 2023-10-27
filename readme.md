@@ -1,4 +1,6 @@
-# Keebio Iris Keymap/Layout
+# Keebio Iris Rev 8 Keymap
+
+![My Iris Rev 8](keyboard-pic.png "My Iris Rev 8")
 
 ## Features
 - Designed for rev 8 model
@@ -22,4 +24,4 @@
 
 1) Ensure you have Podman installed
 2) Execute ./build.sh
-3) UF2 firmware build will be copied to ./build-volume/build-output/
+3) Resulting UF2 firmware file will be copied to ./build-volume/build-output/
