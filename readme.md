@@ -6,7 +6,7 @@
 - Designed for rev 8 model
 - Per-layer RGB lighting settings
 - Tap dance keys
-- Automation/macros inspired based on BadUSB scripts
+- Automation/macros inspired by BadUSB/ducky scripts
 - Compiling is easy thanks to podman and build.sh
 
 ## Layers
