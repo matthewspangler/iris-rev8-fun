@@ -27,11 +27,18 @@
 - Double tap right alt for left alt
 
 ### Fn (Layer 1)
+
+![Fn Layer](assets/github-com-matthewspangler-iris-rev8-fun-(fn-layer).png "Fn Layer")
+
+- Can be switched to temporarily by holding left brace in the qwerty layer
+
 ### SYMBOLS (Layer 2)
 ### Navigation (Layer 3)
 ### Mouse (Layer 4)
 
 ![Mouse Layer](assets/github-com-matthewspangler-iris-rev8-fun-(mouse-layer).png "Mouse Layer")
+
+- Can be switched to temporarily by holding right brace in the qwerty layer
 
 ### Media (Layer 5)
 ### Gaming (Layer 6)
