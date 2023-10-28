@@ -10,7 +10,21 @@
 
 ## Layers
 
+- "Layer up" cycles up through layers
+- "Layer down" cycles down through layers
+
 ### Qwerty
+![Qwerty Layer](assets/qwerty_layer.png "Qwerty Layer")
+
+#### Special functions
+- Hold left brace for temporary Fn layer 
+- Hold right brace for temporary mouse layer
+- Double tap '~ `' for Esc
+- Double tap left shift for caps lock
+- Double tap left ctrl for right ctrl
+- Double tap left win for right win
+- Double tap right alt for left alt
+
 ### Fn
 ### SYMBOLS
 ### Navigation
