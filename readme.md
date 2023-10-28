@@ -35,7 +35,7 @@
 
 ### SYMBOLS (Layer 2)
 
-WIP
+![Symbol Layer](assets/github-com-matthewspangler-iris-rev8-fun-(symbol-layer).png "Symbol Layer")
 
 ### Navigation (Layer 3)
 
