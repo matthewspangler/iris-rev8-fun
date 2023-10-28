@@ -30,10 +30,15 @@
 ### SYMBOLS (Layer 2)
 ### Navigation (Layer 3)
 ### Mouse (Layer 4)
+
+![Mouse Layer](assets/github-com-matthewspangler-iris-rev8-fun-(mouse-layer).png "Mouse Layer")
+
 ### Media (Layer 5)
 ### Gaming (Layer 6)
 
 ## Ducky Scripts
+
+WIP
 
 ## How to use
 

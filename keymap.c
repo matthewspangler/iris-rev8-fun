@@ -302,23 +302,23 @@ const rgblight_segment_t PROGMEM NAV_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
 
 const rgblight_segment_t PROGMEM MOUSE_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
     // left side
-    {0, 6, HSV_MAGENTA},
-    {6, 6, HSV_MAGENTA},
-    {12, 6, HSV_MAGENTA},
-    {18, 6, HSV_MAGENTA},
-    {24, 2, HSV_MAGENTA},
-    {26, 1, HSV_MAGENTA},
-    {27, 1, HSV_MAGENTA},
-    {28, 3, HSV_MAGENTA}, // underglow
-    {31, 3, HSV_MAGENTA}, // underglow
+    {0, 6, HSV_ORANGE},
+    {6, 6, HSV_ORANGE},
+    {12, 6, HSV_ORANGE},
+    {18, 6, HSV_ORANGE},
+    {24, 2, HSV_ORANGE},
+    {26, 1, HSV_ORANGE},
+    {27, 1, HSV_ORANGE},
+    {28, 3, HSV_ORANGE}, // underglow
+    {31, 3, HSV_ORANGE}, // underglow
     // right side
-    {34, 6, HSV_MAGENTA},
-    {40, 6, HSV_MAGENTA},
-    {46, 6, HSV_MAGENTA},
-    {52, 6, HSV_MAGENTA},
-    {58, 4, HSV_MAGENTA},
-    {62, 3, HSV_MAGENTA}, // underglow
-    {65, 3, HSV_MAGENTA} // underglow
+    {34, 6, HSV_ORANGE},
+    {40, 6, HSV_ORANGE},
+    {46, 6, HSV_ORANGE},
+    {52, 6, HSV_ORANGE},
+    {58, 4, HSV_ORANGE},
+    {62, 3, HSV_ORANGE}, // underglow
+    {65, 3, HSV_ORANGE} // underglow
 );
 
 const rgblight_segment_t PROGMEM MEDIA_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
