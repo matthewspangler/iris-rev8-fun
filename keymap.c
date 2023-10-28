@@ -68,7 +68,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [LACL] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_RCTL),
     // KC_LGUI --> KC_RGUI
     [AGUI] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_RGUI),
-
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -174,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_MACRO] = LAYOUT(
     //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______,  EE_CLR,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
         _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
@@ -259,7 +258,7 @@ const rgblight_segment_t PROGMEM FN_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM SYM_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // left side
+    // left sidfile:///var/home/palebluedot/Coding/iris-rev8-fun/build-volume/build-output/keebio_iris_rev8_matthewspangler.uf2e
     {0, 6, HSV_AZURE},
     {6, 6, HSV_AZURE},
     {12, 6, HSV_AZURE},
