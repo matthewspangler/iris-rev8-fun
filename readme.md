@@ -7,6 +7,7 @@
 - Per-layer RGB lighting settings
 - Tap dance keys
 - Automation/macros inspired based on BadUSB scripts
+- Compiling is easy thanks to podman and build.sh
 
 ## Layers
 
@@ -33,7 +34,13 @@
 - Can be switched to temporarily by holding left brace in the qwerty layer
 
 ### SYMBOLS (Layer 2)
+
+WIP
+
 ### Navigation (Layer 3)
+
+WIP
+
 ### Mouse (Layer 4)
 
 ![Mouse Layer](assets/github-com-matthewspangler-iris-rev8-fun-(mouse-layer).png "Mouse Layer")
@@ -41,7 +48,12 @@
 - Can be switched to temporarily by holding right brace in the qwerty layer
 
 ### Media (Layer 5)
+
+WIP
+
 ### Gaming (Layer 6)
+
+WIP
 
 ## Ducky Scripts
 
