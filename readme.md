@@ -13,7 +13,7 @@
 - "Layer up" cycles up through layers
 - "Layer down" cycles down through layers
 
-### Qwerty
+### Qwerty (Layer 0)
 
 ![Qwerty Layer](assets/github-com-matthewspangler-iris-rev8-fun-(qwerty-layer).png "Qwerty Layer")
 
@@ -26,17 +26,21 @@
 - Double tap left win for right win
 - Double tap right alt for left alt
 
-### Fn
-### SYMBOLS
-### Navigation
-### Mouse
-### Media
-### Gaming
+### Fn (Layer 1)
+### SYMBOLS (Layer 2)
+### Navigation (Layer 3)
+### Mouse (Layer 4)
+### Media (Layer 5)
+### Gaming (Layer 6)
 
 ## Ducky Scripts
 
-## Usage
+## How to use
 
-1) Ensure you have Podman installed
+1) Ensure you have Podman installed.
 2) Execute ./build.sh
 3) Resulting UF2 firmware file will be copied to ./build-volume/build-output/
+4) Double press the reset button under each keyboard half.
+5) Each keyboard half should expose its filesystem to your computer.
+6) Mount both keyboard filesystems and drag and drop the UF2 file to each.
+7) You have successfully flashed the keyboard with this configuration!
