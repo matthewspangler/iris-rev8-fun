@@ -1,11 +1,12 @@
 [
   {
-    "name": "github.com/matthewspangler/iris-rev8-fun",
+    "name": "github.com/matthewspangler/iris-rev8-fun (qwerty layer)",
     "author": "Matthew Spangler"
   },
   [
     {
       "x": 3,
+      "c": "#bf8be8",
       "a": 5
     },
     "#\n3",

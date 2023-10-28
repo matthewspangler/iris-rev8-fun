@@ -14,7 +14,8 @@
 - "Layer down" cycles down through layers
 
 ### Qwerty
-![Qwerty Layer](assets/qwerty_layer.png "Qwerty Layer")
+
+![Qwerty Layer](assets/github-com-matthewspangler-iris-rev8-fun-(qwerty-layer).png "Qwerty Layer")
 
 #### Special functions
 - Hold left brace for temporary Fn layer 
