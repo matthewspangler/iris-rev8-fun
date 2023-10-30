@@ -39,7 +39,7 @@
 
 ### Navigation (Layer 3)
 
-WIP
+![Navigation Layer](assets/github-com-matthewspangler-iris-rev8-fun-(navigation-layer).png "Navigation Layer")
 
 ### Mouse (Layer 4)
 
@@ -49,11 +49,11 @@ WIP
 
 ### Media (Layer 5)
 
-WIP
+![Media Layer](assets/github-com-matthewspangler-iris-rev8-fun-(media-layer).png "Media Layer")
 
 ### Gaming (Layer 6)
 
-WIP
+![Gaming Layer](assets/github-com-matthewspangler-iris-rev8-fun-(gaming-layer).png "Gaming Layer")
 
 ## Ducky Scripts
 
