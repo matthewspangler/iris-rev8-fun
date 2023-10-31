@@ -3,6 +3,14 @@
 
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    TURBO = SAFE_RANGE,
+    JIGGLER,
+};
+
+bool jiggle_macro = false;
+bool turbo_macro = false;
+
 enum my_layers {
     _QWERTY, // 0
     _FN, // 1
@@ -172,11 +180,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_MACRO] = LAYOUT(
     //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
-        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, QK_BOOT,  EE_CLR,
+        _______, _______, _______, _______, _______,   TURBO,                            _______, _______, _______, _______, QK_BOOT,  EE_CLR,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
         _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-        _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                            _______, JIGGLER, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
         _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
     //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -257,7 +265,7 @@ const rgblight_segment_t PROGMEM FN_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 
 const rgblight_segment_t PROGMEM SYM_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
-    // left sidfile:///var/home/palebluedot/Coding/iris-rev8-fun/build-volume/build-output/keebio_iris_rev8_matthewspangler.uf2e
+    // left side
     {0, 6, HSV_AZURE},
     {6, 6, HSV_AZURE},
     {12, 6, HSV_AZURE},
@@ -362,6 +370,26 @@ const rgblight_segment_t PROGMEM GAMING_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
     {65, 3, HSV_BLUE} // underglow
 );
 
+const rgblight_segment_t PROGMEM MACRO_LIGHT_LAYER[] = RGBLIGHT_LAYER_SEGMENTS(
+    // left side
+    {0, 6, HSV_WHITE},
+    {6, 6, HSV_WHITE},
+    {12, 6, HSV_WHITE},
+    {18, 6, HSV_WHITE},
+    {24, 2, HSV_WHITE},
+    {26, 1, HSV_WHITE},
+    {27, 1, HSV_WHITE},
+    {28, 3, HSV_WHITE}, // underglow
+    {31, 3, HSV_WHITE}, // underglow
+    // right side
+    {34, 6, HSV_WHITE},
+    {40, 6, HSV_WHITE},
+    {46, 6, HSV_WHITE},
+    {52, 6, HSV_WHITE},
+    {58, 4, HSV_WHITE},
+    {62, 3, HSV_WHITE}, // underglow
+    {65, 3, HSV_WHITE} // underglow
+);
 
 const rgblight_segment_t* const PROGMEM MY_LIGHT_LAYERS[] = RGBLIGHT_LAYERS_LIST(
     QWERTY_LIGHT_LAYER,
@@ -370,13 +398,13 @@ const rgblight_segment_t* const PROGMEM MY_LIGHT_LAYERS[] = RGBLIGHT_LAYERS_LIST
     NAV_LIGHT_LAYER,
     MOUSE_LIGHT_LAYER,
     MEDIA_LIGHT_LAYER,
-    GAMING_LIGHT_LAYER
+    GAMING_LIGHT_LAYER,
+    MACRO_LIGHT_LAYER
 );
 
 void keyboard_post_init_user(void) {
     rgblight_layers = MY_LIGHT_LAYERS;
 }
-
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(_QWERTY, layer_state_cmp(state, _QWERTY));
@@ -391,6 +419,63 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(_MOUSE, layer_state_cmp(state, _MOUSE));
     rgblight_set_layer_state(_MEDIA, layer_state_cmp(state, _MEDIA));
     rgblight_set_layer_state(_GAMING, layer_state_cmp(state, _GAMING));
-
+    rgblight_set_layer_state(_MACRO, layer_state_cmp(state, _MACRO));
     return state;
+}
+
+int counter;
+int c1;
+int c2;
+
+void do_jiggle(void) {
+    counter = counter + 1;
+    SEND_STRING(SS_DELAY(1));
+    c1 = counter % 13;
+    c2 = counter % 37;
+    if (c1 == 0) {
+        SEND_STRING(SS_DELAY(10000));
+        tap_code(KC_MS_UP);
+        tap_code(KC_MS_DOWN);
+    }
+    if (c2 == 0) {
+        SEND_STRING(SS_DELAY(30000));
+        tap_code(KC_MS_LEFT);
+        tap_code(KC_MS_RIGHT);
+    }
+    if (counter == 1000) {
+        counter = 0;
+    }
+}
+
+void matrix_init_user(void) {
+}
+
+void matrix_scan_user(void) {
+    if (jiggle_macro) {
+        do_jiggle();
+    } else {
+    }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        // Macro flags:
+        case JIGGLER:
+            if (record->event.pressed) {
+                jiggle_macro = true;
+            } else {
+                jiggle_macro = false;
+            }
+            break;
+        case TURBO:
+            if (record->event.pressed) {
+                turbo_macro = true;
+            } else {
+                turbo_macro = false;
+            }
+            break;
+        default:
+            break;
+    }
+    return true;
 }
